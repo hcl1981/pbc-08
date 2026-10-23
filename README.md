@@ -57,12 +57,15 @@ Braucht das Pico SDK 2.1 (`PICO_SDK_PATH`) und arm-none-eabi-gcc.
     ./build.sh            # -> dist/pbc_pico8.uf2
     ./build.sh clean -DCPU_MHZ=200 -DCPU_VREG=VREG_VOLTAGE_1_15
     ./build.sh -DPBC_SERIAL_LOG=ON   # Log über USB-CDC statt USB-Stick
+    tools/flash.sh                   # UF2 auf das BOOTSEL-Laufwerk kopieren
+    tools/serial_log.sh              # Log der Debug-Firmware mitschreiben
 
 PC-Test ohne Hardware (Screenshots, Heap-Messung, WAV):
 
     make -C hosttest && cd hosttest/run && PF_ROOT=. FRAMES=300 SHOTS=299 ../pico8_host cart.p8.png
     HEAP_TOTAL=380000 ...   # ungefähr so knapp wie auf dem Gerät
     make -C hosttest menu_host   # Vorschau des Cart-Menüs (SCREEN=menu|usb|start)
+    make -C hosttest label_host luadump_host   # Vorschaubilder prüfen, Lua-Quelltext ausgeben
 
 ## Aufbau
 

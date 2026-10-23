@@ -43,7 +43,7 @@ $(OBJ):
 	mkdir -p $@
 
 clean:
-	rm -rf $(OBJ) pico8_host
+	rm -rf $(OBJ) pico8_host pico8_stack menu_host label_host luadump_host
 
 # ---- PC preview of the native menu ----
 MENUOBJ = $(OBJ)/m_menu.o $(OBJ)/m_gfx.o $(OBJ)/m_assets.o $(OBJ)/m_settings.o \
@@ -64,3 +64,13 @@ $(OBJ)/m_settings.o: $(SRC)/settings.c | $(OBJ)
 
 pico8_stack: $(filter-out $(OBJ)/main_host.o,$(OBJS)) $(OBJ)/main_stack.o
 	$(CXX) -o $@ $^ -lm -lpthread
+
+# ---- cart helpers: menu label loading, Lua source dump ----
+CARTOBJ = $(OBJ)/m_cart.o $(OBJ)/f8_emojiconversion.o $(OBJ)/f8_filehelpers.o \
+          $(OBJ)/f8_logger.o $(OBJ)/miniz.o $(OBJ)/pfile_posix.o
+label_host: $(OBJ)/label_host.o $(CARTOBJ)
+	$(CXX) -o $@ $^
+luadump_host: $(OBJ)/luadump_host.o $(CARTOBJ)
+	$(CXX) -o $@ $^
+$(OBJ)/label_host.o $(OBJ)/luadump_host.o: $(OBJ)/%.o: %.cpp | $(OBJ)
+	$(CXX) $(CXXFLAGS) -DPBC_HOST -c $< -o $@

@@ -17,3 +17,5 @@ hosttest/*.wav
 hosttest/gmon.out
 dist/*seriallog*
 *.o
+label_host
+luadump_host
