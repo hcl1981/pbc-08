@@ -68,7 +68,7 @@ enum { STRID_LANGID, STRID_MANUFACTURER, STRID_PRODUCT, STRID_SERIAL };
 static const char *string_desc_arr[] = {
     (const char[]){ 0x09, 0x04 },   // 0: language = English (0x0409)
     "PicoBoy",                      // 1: Manufacturer
-    "PBC PICO-8 Carts",             // 2: Product
+    "PBC+8 Carts",             // 2: Product
     NULL,                           // 3: Serial (filled from unique id)
 };
 
