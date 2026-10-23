@@ -8,6 +8,8 @@ PICO-8 ist eine Marke von Lexaloffle Games. PBC+8 ist ein inoffizielles,
 unabhängiges Projekt ohne Verbindung zu Lexaloffle und enthält keine
 Software von Lexaloffle.
 
+<img src="docs/menu.png" width="240" alt="Cart-Menü">
+
 ## Benutzung
 
 1. `dist/pbc_pico8.uf2` flashen (BOOTSEL halten, USB anstecken, Datei kopieren).
