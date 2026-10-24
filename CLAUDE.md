@@ -1,7 +1,7 @@
 # PBC-08 – Arbeitsnotizen
 
 PICO-8-kompatibler Player (fake-08 + z8lua) für den PicoBoy Color Plus.
-Repo: https://github.com/hcl1981/pbc-pico8 (öffentlich, Release v1.0 mit UF2).
+Repo: https://github.com/hcl1981/pbc-08 (öffentlich, Release v1.0 mit UF2).
 Nutzer schreibt Deutsch; Antworten auf Deutsch. README.md beschreibt Bedienung und Aufbau.
 
 ## Arbeitsweise mit dem Nutzer
