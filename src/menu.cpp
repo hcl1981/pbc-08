@@ -462,7 +462,7 @@ static void options_card(const Options &o, int slide)
         }
     }
     gfx_text_centered(&font_small, GFX_W / 2, y0 + 134, "links/rechts \x84ndern \xfa A/B fertig", DIM, 255);
-    gfx_text_centered(&font_small, GFX_W / 2, y0 + 156, "PBC+8 \xfa fake-08", FAINT, 255);
+    gfx_text_centered(&font_small, GFX_W / 2, y0 + 156, "PBC-08 \xfa fake-08 by jtothebell", FAINT, 255);
 }
 
 // ---- the menu ------------------------------------------------------------------------------
@@ -481,7 +481,7 @@ static void menu_screen(const Menu &m)
     background();
 
     // header
-    int lw = gfx_text(&font_title, 18, 8, "PBC+8", TEXT, 255);
+    int lw = gfx_text(&font_title, 18, 8, "PBC-08", TEXT, 255);
     logo_stripe(18, 42, lw, 3, 255);
     char chip[64];
     int n = count_carts(m.v);

@@ -1,10 +1,11 @@
-# PBC+8
+# PBC-08
 
 Inoffizieller PICO-8-kompatibler Player für den **PicoBoy Color Plus** (RP2350A, 520 KB RAM, 16 MB
 Flash, ST7789 240×280, PWM-Lautsprecher). VM: [fake-08](https://github.com/jtothebell/fake-08)
-(MIT) mit z8lua, angepasst an 520 KB RAM.
+(MIT) von jtothebell mit z8lua, angepasst an 520 KB RAM. Der Name PBC-08 verneigt sich
+vor fake-08: „PBC“ statt „fake“, die „08“ bleibt.
 
-PICO-8 ist eine Marke von Lexaloffle Games. PBC+8 ist ein inoffizielles,
+PICO-8 ist eine Marke von Lexaloffle Games. PBC-08 ist ein inoffizielles,
 unabhängiges Projekt ohne Verbindung zu Lexaloffle und enthält keine
 Software von Lexaloffle.
 

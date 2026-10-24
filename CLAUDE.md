@@ -1,4 +1,4 @@
-# PBC+8 – Arbeitsnotizen
+# PBC-08 – Arbeitsnotizen
 
 PICO-8-kompatibler Player (fake-08 + z8lua) für den PicoBoy Color Plus.
 Repo: https://github.com/hcl1981/pbc-pico8 (öffentlich, Release v1.0 mit UF2).
@@ -11,7 +11,7 @@ Nutzer schreibt Deutsch; Antworten auf Deutsch. README.md beschreibt Bedienung u
 - Im USB-Stick-Modus liegt das Laufwerk unter `/run/media/$USER/PICO8`
   (Carts, `pico8.cfg`, `cdata/` mit Spielständen und ROM-Caches).
 - Nach Firmware-Änderungen: bauen, flashen, dann um einen Test am Gerät bitten.
-- Name auf dem Gerät ist „PBC+8“ (nicht „PICO-8“, Marke von Lexaloffle).
+- Name ist „PBC-08“ (Verweis auf fake-08; nie „PICO“ im Namen, Marke von Lexaloffle).
 - Commits als hcl1981 mit GitHub-noreply-Adresse; BBS-Carts nie committen.
 
 ## Hardware (PBC+)
@@ -67,6 +67,6 @@ HEAP_TOTAL, MARK_GC, PBC_NO_ROMCACHE, PBC_FIXED_SEED. Die Zahlen sind 64-Bit;
 - Am Gerät getestet: Celeste, Pico Valley, Crimson Night, Dust Bunny, 512px Under.
 - Auf dem Gerät: zusätzlich Carrot Kingdom, Peak of Empires, Loop, Molemole, Rubyeyes.
 - Zu groß: Touhou Unmei no Hoshi, Pico Backrooms (Level > 500 KB Lua), Tad.
-- Offen: Firmware mit „PBC+8“-Titel noch nicht geflasht; Advent 2025 stürzt am PC
+- Offen: Firmware mit „PBC-08“-Titel noch nicht geflasht; Advent 2025 stürzt am PC
   bei knappem Heap ab (rc=139) – ansehen; mögliche Einsparungen: Lua-Reserve 16 KB,
   ein einzelner Frame-Puffer, weniger Code im RAM.
