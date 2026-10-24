@@ -15,7 +15,7 @@ Software von Lexaloffle.
 
 1. `dist/pbc08.uf2` flashen (BOOTSEL halten, USB anstecken, Datei kopieren).
 2. Erster Start (leeres Laufwerk), **A/B beim Einschalten halten** oder die
-   Karte „USB-Stick“ im Menü: USB-Laufwerk „PICO8“. Carts (`.p8`, `.p8.png`,
+   Karte „USB-Stick“ im Menü: USB-Laufwerk „PBC-08“. Carts (`.p8`, `.p8.png`,
    auch in Unterordnern) draufkopieren, **auswerfen** – startet neu.
 3. Cart-Menü: links/rechts blättern (läuft rund), hoch/runter springt 5 weiter,
    A oder B startet. Am Ende: „Optionen“ (Skalierung, Lautstärke) und „USB-Stick“.

@@ -11,7 +11,7 @@
  *            ST7789) and the sound (fake-08's synth into the PWM ring).
  *
  * Boot:
- *   A or B held, or no carts on the drive  -> USB stick mode (drive "PICO8")
+ *   A or B held, or no carts on the drive  -> USB stick mode (drive "PBC-08")
  *   otherwise                              -> cart menu (menu.cpp, native)
  * The menu runs at the stock clock before anything else is set up; the
  * chosen cart then starts with the whole heap. Leaving a cart restarts the
@@ -140,6 +140,7 @@ extern "C" void __attribute__((naked, used, section(".time_critical.isr_hardfaul
 
 /* ---- FatFs volume -------------------------------------------------------- */
 static FATFS g_fs;
+static const char VOLUME_LABEL[] = "PBC-08";
 extern "C" volatile bool usb_msc_ejected;
 
 static bool fs_mount(void)   { return f_mount(&g_fs, "", 1) == FR_OK; }
@@ -154,7 +155,7 @@ static bool fs_format(void)
     if (r != FR_OK)
         return false;
     if (fs_mount()) {
-        f_setlabel("PICO8");
+        f_setlabel(VOLUME_LABEL);
         fs_unmount();
     }
     return true;
@@ -266,7 +267,7 @@ static void __attribute__((noreturn)) usb_stick_mode(void)
     if (!gfx_fb && !gfx_init()) {
         /* no heap for the pretty screen: plain text */
         screen_title("USB-STICK");
-        diag("Carts auf PICO8 kopieren,", PBC_WHITE);
+        diag("Carts auf PBC-08 kopieren,", PBC_WHITE);
         diag("dann auswerfen.", PBC_WHITE);
     }
 
@@ -279,6 +280,12 @@ static void __attribute__((noreturn)) usb_stick_mode(void)
     if (fr != FR_OK) {
         if (gfx_fb) usb_screen_message("Fehler", "Das Laufwerk ist unbrauchbar.");
         for (;;) tight_loop_contents();
+    }
+    /* drives formatted before the rename are still called PICO8 */
+    {
+        char label[12];
+        if (f_getlabel("", label, NULL) == FR_OK && strcmp(label, VOLUME_LABEL) != 0)
+            f_setlabel(VOLUME_LABEL);
     }
     fs_write_readme();
     f_mkdir("/cdata");

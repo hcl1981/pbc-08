@@ -741,7 +741,7 @@ void usb_screen(int state, const char *info, unsigned t_ms)
     gfx_text_centered(&font_title, GFX_W / 2, 164, "USB-Stick", TEXT, 255);
     int uw = gfx_text_w(&font_title, "USB-Stick");
     logo_stripe((GFX_W - uw) / 2, 197, uw, 3, 255);
-    gfx_text_centered(&font_small, GFX_W / 2, 206, "Carts (.p8 / .p8.png) auf PICO8", DIM, 255);
+    gfx_text_centered(&font_small, GFX_W / 2, 206, "Carts (.p8 / .p8.png) auf PBC-08", DIM, 255);
     gfx_text_centered(&font_small, GFX_W / 2, 220, "kopieren, dann auswerfen.", DIM, 255);
     int w = gfx_text_w(&font_small, states[state]) + 34;
     int x = (GFX_W - w) / 2;

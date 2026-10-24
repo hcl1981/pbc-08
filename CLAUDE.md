@@ -8,7 +8,7 @@ Nutzer schreibt Deutsch; Antworten auf Deutsch. README.md beschreibt Bedienung u
 
 - Ist das Gerät im BOOTSEL-Modus („ist im boot modus“), selbst flashen:
   `tools/flash.sh` (wartet bis 5 min auf `/run/media/$USER/RP2350`).
-- Im USB-Stick-Modus liegt das Laufwerk unter `/run/media/$USER/PICO8`
+- Im USB-Stick-Modus liegt das Laufwerk unter `/run/media/$USER/PBC-08` (vor v1.2: `PICO8`)
   (Carts, `pico8.cfg`, `cdata/` mit Spielständen und ROM-Caches).
 - Nach Firmware-Änderungen: bauen, flashen, dann um einen Test am Gerät bitten.
 - Name ist „PBC-08“ (Verweis auf fake-08; nie „PICO“ im Namen, Marke von Lexaloffle).
@@ -38,7 +38,7 @@ Nutzer schreibt Deutsch; Antworten auf Deutsch. README.md beschreibt Bedienung u
 - Speicher: `pbc_lua_may_grow` begrenzt Lua (Lua + C++ + Reserve ≤ Heap),
   Notfall-GC in `pbc_malloc`; OOM → „not enough memory“ und zurück ins Menü.
 - `src/memmap_pbc.ld`: Lua-Kern, Synth, Skalierer, Display, Audio im RAM.
-- Flash: 0–2 MB Firmware, 2 MB–0xFF0000 FatFs „PICO8“.
+- Flash: 0–2 MB Firmware, 2 MB–0xFF0000 FatFs „PBC-08“.
 - fake-08-Änderungen (in `fake08/`, Original in `third_party/` – gitignored):
   kein regex/iostream, Streaming-PNG (tinfl), zeilenweiser .p8-Parser, float-Synth
   ohne Hall, schlankes Bios, ROM-Cache `/cdata/<fnv>.rom`, Debug-Info verworfen,

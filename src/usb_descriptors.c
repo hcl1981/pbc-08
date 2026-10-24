@@ -2,7 +2,7 @@
  * usb_descriptors.c -- USB descriptors for the PBC PICO-8 mass-storage device.
  *
  * A single MSC (bulk-only) interface exposing the on-board FatFs partition as
- * a USB stick called "PICO8". Self-contained (no TinyUSB BSP board layer):
+ * a USB stick called "PBC-08". Self-contained (no TinyUSB BSP board layer):
  * the serial string is derived from the RP2350 unique flash id.
  */
 

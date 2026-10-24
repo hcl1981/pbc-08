@@ -8,7 +8,7 @@
  * 16 MB flash map (offsets from XIP_BASE / flash start):
  *
  *   0x000000 .. 0x1FFFFF   (2 MB)     firmware
- *   0x200000 .. 0xFEFFFF   (~13.9 MB) FatFs partition -> USB stick "PICO8"
+ *   0x200000 .. 0xFEFFFF   (~13.9 MB) FatFs partition -> USB stick "PBC-08"
  *   0xFF0000 .. 0xFFFFFF   (64 KB)    reserved (0x10FFFF00 must stay free: the
  *                                     SDK's UF2 writes an extra block there)
  *
