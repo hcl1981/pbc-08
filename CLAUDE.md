@@ -47,7 +47,7 @@ Nutzer schreibt Deutsch; Antworten auf Deutsch. README.md beschreibt Bedienung u
 
 ## Bauen und testen
 
-    ./build.sh                       # -> dist/pbc_pico8.uf2
+    ./build.sh                       # -> dist/pbc08.uf2
     ./build.sh -DPBC_SERIAL_LOG=ON   # Debug-UF2 mit USB-CDC-Log ([hb]-Zeilen), ohne USB-Stick
     tools/serial_log.sh              # Log mitschreiben (FLASH=1 flasht vorher die Debug-UF2)
     stty -F /dev/ttyACM0 1200        # Debug-Firmware → BOOTSEL

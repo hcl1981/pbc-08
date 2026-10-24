@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
-# Baut PBC PICO-8 fuer den PicoBoy Color Plus.
+# Baut PBC-08 fuer den PicoBoy Color Plus.
 #
 # Aufruf:   ./build.sh                 bauen
 #           ./build.sh clean           Bauordner loeschen und neu bauen
 #           ./build.sh -DCPU_MHZ=336   CMake-Optionen durchreichen
 #
-# Ergebnis: dist/pbc_pico8.uf2
+# Ergebnis: dist/pbc08.uf2
 #
 # Das Pico SDK wird aus PICO_SDK_PATH genommen, sonst aus dem gemeinsamen
 # Zwischenspeicher der pbc-plus-Projekte (~/.cache/pbcp-sdks/pico-sdk).
@@ -48,12 +48,12 @@ cmake --build build -j"$(nproc 2>/dev/null || echo 2)" >build.log 2>&1 \
     || { grep -E "error|Error" build.log | head -20; exit 1; }
 
 mkdir -p dist
-cp -f build/pbc_pico8.uf2 dist/pbc_pico8.uf2
-arm-none-eabi-size -A build/pbc_pico8.elf | awk '
+cp -f build/pbc08.uf2 dist/pbc08.uf2
+arm-none-eabi-size -A build/pbc08.elf | awk '
     $1==".data"||$1==".bss" {ram+=$2}
     $1==".text"||$1==".rodata"||$1==".data"||$1==".binary_info" {flash+=$2}
     END {printf "    Firmware %d KB (Platz bis 1024), statisches RAM %d KB von 512\n", flash/1024, ram/1024}'
-echo " OK dist/pbc_pico8.uf2"
+echo " OK dist/pbc08.uf2"
 echo
 echo "  Flashen: BOOTSEL gedrueckt halten, USB anstecken, die .uf2 aus"
 echo "           dist/ auf das erscheinende Laufwerk kopieren."

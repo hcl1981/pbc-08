@@ -13,7 +13,7 @@ Software von Lexaloffle.
 
 ## Benutzung
 
-1. `dist/pbc_pico8.uf2` flashen (BOOTSEL halten, USB anstecken, Datei kopieren).
+1. `dist/pbc08.uf2` flashen (BOOTSEL halten, USB anstecken, Datei kopieren).
 2. Erster Start (leeres Laufwerk), **A/B beim Einschalten halten** oder die
    Karte „USB-Stick“ im Menü: USB-Laufwerk „PICO8“. Carts (`.p8`, `.p8.png`,
    auch in Unterordnern) draufkopieren, **auswerfen** – startet neu.
@@ -55,7 +55,7 @@ damit das Cart-ROM nicht im RAM bleiben muss; er wird bei Bedarf neu erzeugt.
 
 Braucht das Pico SDK 2.1 (`PICO_SDK_PATH`) und arm-none-eabi-gcc.
 
-    ./build.sh            # -> dist/pbc_pico8.uf2
+    ./build.sh            # -> dist/pbc08.uf2
     ./build.sh clean -DCPU_MHZ=200 -DCPU_VREG=VREG_VOLTAGE_1_15
     ./build.sh -DPBC_SERIAL_LOG=ON   # Log über USB-CDC statt USB-Stick
     tools/flash.sh                   # UF2 auf das BOOTSEL-Laufwerk kopieren

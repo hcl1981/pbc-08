@@ -6,7 +6,7 @@
 # Stop it with: pkill -f '^/bin/bash .*tools/serial_log.sh'
 cd "$(dirname "$0")/.."
 LOG=${1:-build/serial.log}
-UF2=dist/pbc_pico8_seriallog.uf2
+UF2=dist/pbc08_seriallog.uf2
 BOOT=/run/media/$USER/RP2350
 flashed=$([ "${FLASH:-0}" = 1 ] && echo 0 || echo 1)
 mkdir -p "$(dirname "$LOG")"

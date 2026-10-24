@@ -1,4 +1,4 @@
-# PBC PICO-8 -- PICO-8 player for the PicoBoy Color Plus
+# PBC-08 -- PICO-8-compatible player for the PicoBoy Color Plus
 #
 # VM: fake-08 (MIT) with z8lua, in fake08/. Platform layer in src/,
 # flash FatFs + USB stick from PicoBoyGB / PBC Mega Drive. See README.md.
@@ -27,7 +27,7 @@ option(PBC_SERIAL_LOG "USB serial log instead of the USB stick" OFF)
 
 include(pico_sdk_import.cmake)
 
-project(pbc_pico8 C CXX ASM)
+project(pbc08 C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
@@ -58,7 +58,7 @@ set(LUA_SOURCES
     ${LUA}/lzio.c)
 set_source_files_properties(${LUA_SOURCES} PROPERTIES LANGUAGE CXX)
 
-add_executable(pbc_pico8
+add_executable(pbc08
     src/main_pbc.cpp
     src/menu.cpp
     src/gfx.c
@@ -81,23 +81,23 @@ add_executable(pbc_pico8
     ${LUA_SOURCES}
 )
 
-target_include_directories(pbc_pico8 PRIVATE src fatfs ${F8} ${LUA} ${MZ})
+target_include_directories(pbc08 PRIVATE src fatfs ${F8} ${LUA} ${MZ})
 
 if(PBC_SERIAL_LOG)
-    target_compile_definitions(pbc_pico8 PRIVATE PBC_SERIAL_LOG=1 PBC_LOG_STDOUT=1)
-    pico_enable_stdio_usb(pbc_pico8 1)
+    target_compile_definitions(pbc08 PRIVATE PBC_SERIAL_LOG=1 PBC_LOG_STDOUT=1)
+    pico_enable_stdio_usb(pbc08 1)
 else()
-    target_sources(pbc_pico8 PRIVATE src/usb_msc.c src/usb_descriptors.c)
-    target_include_directories(pbc_pico8 PRIVATE src/usbmsc)
-    target_link_libraries(pbc_pico8 tinyusb_device tinyusb_board)
-    pico_enable_stdio_usb(pbc_pico8 0)
+    target_sources(pbc08 PRIVATE src/usb_msc.c src/usb_descriptors.c)
+    target_include_directories(pbc08 PRIVATE src/usbmsc)
+    target_link_libraries(pbc08 tinyusb_device tinyusb_board)
+    pico_enable_stdio_usb(pbc08 0)
 endif()
 
-target_compile_options(pbc_pico8 PRIVATE
+target_compile_options(pbc08 PRIVATE
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti -fno-exceptions -Wno-deprecated -Wno-register>
     -O2 -fsingle-precision-constant -Wno-unused-parameter -Wno-sign-compare -fstack-usage)
 
-target_compile_definitions(pbc_pico8 PRIVATE
+target_compile_definitions(pbc08 PRIVATE
     PICO_FLASH_SIZE_BYTES=16777216
     PICO_STACK_SIZE=0x1000
     PICO_USE_STACK_GUARDS=1
@@ -117,7 +117,7 @@ target_compile_definitions(pbc_pico8 PRIVATE
     VER_STR="pbc"
 )
 
-target_link_libraries(pbc_pico8
+target_link_libraries(pbc08
     pico_stdlib
     pico_multicore
     pico_unique_id
@@ -134,9 +134,9 @@ target_link_libraries(pbc_pico8
 
 # USB belongs to the mass-storage stick, and UART0's default pins are
 # joystick CENTER/RIGHT -- no stdio at all.
-pico_enable_stdio_uart(pbc_pico8 0)
+pico_enable_stdio_uart(pbc08 0)
 
 # hot code in RAM, see src/memmap_pbc.ld
-pico_set_linker_script(pbc_pico8 ${CMAKE_CURRENT_LIST_DIR}/src/memmap_pbc.ld)
+pico_set_linker_script(pbc08 ${CMAKE_CURRENT_LIST_DIR}/src/memmap_pbc.ld)
 
-pico_add_extra_outputs(pbc_pico8)
+pico_add_extra_outputs(pbc08)
