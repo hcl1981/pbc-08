@@ -46,10 +46,10 @@ damit das Cart-ROM nicht im RAM bleiben muss; er wird bei Bedarf neu erzeugt.
 ## Beispiel-Cart: Office Hours
 
 [`beispiele/office_hours.p8`](beispiele/office_hours.p8) bringt zwei Spiele für die Pause mit:
-**Minen** (12 × 12 Felder, 20 Minen, der erste Zug ist immer sicher) und **Patience**
+**Mines** (12 × 12 Felder, 20 Minen, der erste Zug ist immer sicher) und **Patience**
 (Klondike, eine Karte pro Zug). Einfach auf das Laufwerk „PBC-08“ kopieren.
 
-| Taste | Minen | Patience |
+| Taste | Mines | Patience |
 |---|---|---|
 | A | aufdecken (auf einer Zahl: Nachbarn aufdecken) | Karte nehmen / ablegen, Stapel ziehen |
 | B | Fahne setzen | Karte auf den Ablagestapel, Abbrechen |
