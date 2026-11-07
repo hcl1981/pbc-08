@@ -43,6 +43,20 @@ Spielstände (`cartdata`) liegen in `/cdata`, geänderte werden alle 5 s
 geschrieben. Dort liegt auch je Cart ein ROM-Cache (`<nummer>.rom`, 17 KB),
 damit das Cart-ROM nicht im RAM bleiben muss; er wird bei Bedarf neu erzeugt.
 
+## Beispiel-Cart: Office Hours
+
+[`beispiele/office_hours.p8`](beispiele/office_hours.p8) bringt zwei Spiele für die Pause mit:
+**Minen** (12 × 12 Felder, 20 Minen, der erste Zug ist immer sicher) und **Patience**
+(Klondike, eine Karte pro Zug). Einfach auf das Laufwerk „PBC-08“ kopieren.
+
+| Taste | Minen | Patience |
+|---|---|---|
+| A | aufdecken (auf einer Zahl: Nachbarn aufdecken) | Karte nehmen / ablegen, Stapel ziehen |
+| B | Fahne setzen | Karte auf den Ablagestapel, Abbrechen |
+| B lang | zurück zum Titel | zurück zum Titel |
+
+Titelbild und Kartenrückseite sind KI-generiert (Gemini) und auf die 16 PICO-8-Farben umgerechnet.
+
 ## Grenzen
 
 * Lua bekommt den freien Heap. Große Carts brechen mit „not enough memory“
@@ -89,3 +103,4 @@ Das Gesamtwerk steht unter der **GPL-3.0** (`LICENSE.pbcemu`), weil Menügrafik
 (`src/gfx.c`, `src/assets.c`) aus pbcemu stammt. Enthaltene Teile:
 fake-08/z8lua MIT (`fake08/LICENSE.MD`), PicoBoyGB-Teile MIT (`LICENSE.picoboygb`),
 Lato-Schrift OFL (`LICENSE.lato`), FatFs BSD-artig (`fatfs/`).
+Das Beispiel-Cart `beispiele/office_hours.p8` ist gemeinfrei (CC0).
